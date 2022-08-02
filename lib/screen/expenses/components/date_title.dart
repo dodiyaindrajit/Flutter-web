@@ -20,7 +20,7 @@ class DateTitle extends StatelessWidget {
             Text(title, style: Constant.fontBlack18),
             const Icon(
               Icons.more_horiz,
-              color: Colors.black,
+              color: Color(0xff2c4260),
               size: 30,
             ),
           ],

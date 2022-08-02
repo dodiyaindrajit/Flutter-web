@@ -15,9 +15,12 @@ class ExpensesTitleAndUser extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              "Expenses",
-              style: Constant.fontBlack32.copyWith(fontSize: 20.sp),
+            Expanded(
+              child: Text(
+                "Expenses",
+                overflow: TextOverflow.ellipsis,
+                style: Constant.fontBlack32.copyWith(fontSize: 20.sp),
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -25,12 +28,12 @@ class ExpensesTitleAndUser extends StatelessWidget {
               children: const [
                 Icon(
                   Icons.person_outlined,
-                  color: Colors.black,
+                  color: Constant.deepBlue,
                   size: 40,
                 ),
                 Icon(
                   Icons.add_circle,
-                  color: Colors.black,
+                  color: Constant.deepBlue,
                   size: 30,
                 ),
               ],

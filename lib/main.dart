@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_web_expenses/constant.dart';
 import 'package:flutter_web_expenses/screen/home/home.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -17,8 +19,9 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, screenType) {
         return MaterialApp(
           title: 'Flutter Demo',
+          scrollBehavior: NoThumbScrollBehavior().copyWith(scrollbars: false),
           theme: ThemeData(
-            scaffoldBackgroundColor: Colors.black,
+            scaffoldBackgroundColor: Constant.deepBlue,
             textTheme: GoogleFonts.latoTextTheme(Theme.of(context).textTheme)
                 .apply(bodyColor: Colors.white),
             iconTheme: const IconThemeData(color: Colors.white),
@@ -29,4 +32,12 @@ class MyApp extends StatelessWidget {
       }
     );
   }
+}
+class NoThumbScrollBehavior extends ScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+    PointerDeviceKind.touch,
+    PointerDeviceKind.mouse,
+    PointerDeviceKind.stylus,
+  };
 }

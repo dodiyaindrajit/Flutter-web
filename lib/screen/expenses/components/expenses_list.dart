@@ -11,6 +11,7 @@ class ExpensesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      flex: 2,
       child: GroupedListView<dynamic, String>(
         elements: expensesList,
         groupBy: (val) => val.time,
@@ -24,8 +25,8 @@ class ExpensesList extends StatelessWidget {
         groupHeaderBuilder: (value) => Container(
           margin: const EdgeInsets.symmetric(vertical: 5),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            color: Colors.black,
+            borderRadius: BorderRadius.circular(20),
+            color: Constant.deepBlue,
           ),
           child: Padding(
             padding: const EdgeInsets.only(left: 20, right: 10),
@@ -35,6 +36,7 @@ class ExpensesList extends StatelessWidget {
                 Expanded(
                   child: Text(
                     value.time,
+                    overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.headline5,
                   ),
                 ),
@@ -67,9 +69,12 @@ class ExpensesList extends StatelessWidget {
               children: [
                 Text(
                   element.title,
+                  overflow: TextOverflow.ellipsis,
                   style: Constant.fontBlack12,
                 ),
-                Text(element.subTitle, style: Constant.fontBlack12Normal),
+                Text(element.subTitle,
+                    overflow: TextOverflow.ellipsis,
+                    style: Constant.fontBlack12Normal),
               ],
             ),
             trailing: Text("-" + element.expensesPrice.toString(),
